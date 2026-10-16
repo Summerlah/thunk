@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f5f4;
+  --foreground: #111827;
+  --canvas: #f8f8f7;
+  --panel: rgba(255, 255, 255, 0.75);
+  --panel-strong: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --muted: #6b7280;
+  --accent: #7c3aed;
+  --accent-soft: rgba(124, 58, 237, 0.12);
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  --background: #0b1020;
+  --foreground: #edf2ff;
+  --canvas: #0f172a;
+  --panel: rgba(15, 23, 42, 0.7);
+  --panel-strong: #111827;
+  --border: rgba(148, 163, 184, 0.18);
+  --muted: #94a3b8;
+  --accent: #a78bfa;
+  --accent-soft: rgba(167, 139, 250, 0.16);
+  --shadow: 0 18px 50px rgba(2, 6, 23, 0.42);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.ProseMirror {
+  min-height: 320px;
+  outline: none;
+  color: var(--foreground);
+}
+
+.ProseMirror p {
+  margin: 0.5rem 0;
+  line-height: 1.75;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.25rem;
+}
+
+.ProseMirror li {
+  margin: 0.25rem 0;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+.ProseMirror task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.ProseMirror [data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--muted);
+  pointer-events: none;
+  height: 0;
+}
